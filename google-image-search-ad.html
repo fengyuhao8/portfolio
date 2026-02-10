@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | Google Enterprise Scalability</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488', // Primary Turquoise
+                            900: '#134e4a',
+                        },
+                        slate: {
+                            850: '#1e293b', // Deep navy for text
+                            900: '#0f172a', // Darker navy for backgrounds
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-color: #F8FAFC;
+            --text-main: #0F172A;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Animation Utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Image placeholder gradient */
+        .gradient-soft-teal {
+            background: linear-gradient(135deg, #ccfbf1 0%, #e0e7ff 100%);
+        }
+        
+        /* Custom scrollbar for better reading experience */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-400 selection:text-white">
+
+    <!-- Navigation (Simplified for Case Study) -->
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="group flex items-center text-sm font-medium text-slate-500 hover:text-brand-600 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                Back to Portfolio
+            </a>
+            
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+                Confidential • Google
+            </span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-40 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal active">
+            <h1 class="text-4xl md:text-6xl leading-[1.1] mb-8 font-serif text-slate-900">
+                Scaling Internal Tools for<br>
+                <span class="italic text-brand-600">Engineering Velocity</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
+                Redesigning the deployment infrastructure dashboard used by 10,000+ Google engineers daily. Reduced deployment errors by 15% and workflow time by 40%.
+            </p>
+        </div>
+
+        <!-- Full Width Hero Image -->
+        <div class="max-w-6xl mx-auto reveal delay-100">
+            <div class="aspect-[21/9] rounded-2xl overflow-hidden gradient-soft-teal flex items-center justify-center relative shadow-2xl shadow-brand-900/5">
+                <div class="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
+                <span class="relative text-brand-900/30 font-serif italic text-4xl">High Fidelity UI Mockup</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-12 gap-12 lg:gap-24">
+            
+            <!-- Sidebar (Metadata) -->
+            <aside class="md:col-span-3 md:sticky md:top-32 h-fit reveal delay-200 space-y-8 text-sm">
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-xs">Role</h4>
+                    <p class="text-slate-600">Senior Product Designer</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-xs">Team</h4>
+                    <p class="text-slate-600">2 PMs, 8 Engineers, 1 UX Researcher</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-xs">Timeline</h4>
+                    <p class="text-slate-600">8 Months (2024)</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-xs">Skills</h4>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>Systems Thinking</li>
+                        <li>Enterprise UX</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Case Study Body -->
+            <article class="md:col-span-8 md:col-start-5 space-y-20">
+                
+                <!-- Section 1: The Problem -->
+                <section class="reveal">
+                    <h2 class="text-3xl font-serif text-slate-900 mb-6">The Challenge: Fragmentation at Scale</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        Google's internal engineering teams were using a suite of 12 disparate tools to manage code deployment. This fragmentation forced engineers to context-switch constantly, leading to:
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-lucide="alert-circle" class="w-6 h-6 text-rose-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-600"><strong>High Error Rates:</strong> Critical deployment warnings were often missed in the noise of unorganized logs.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="clock" class="w-6 h-6 text-rose-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-600"><strong>Lost Productivity:</strong> Engineers spent average 2 hours/week just navigating between tools.</span>
+                        </li>
+                    </ul>
+                    <div class="bg-slate-50 border-l-4 border-brand-500 p-6 rounded-r-lg">
+                        <p class="text-slate-800 font-medium italic">
+                            "How might we unify the deployment workflow into a 'Single Pane of Glass' without overcomplicating the interface for power users?"
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 2: Discovery -->
+                <section class="reveal">
+                    <h2 class="text-3xl font-serif text-slate-900 mb-6">Discovery & Insight</h2>
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        I led a series of contextual inquiries with 15 engineers across different product areas (Search, Cloud, YouTube). We discovered a critical insight:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm hover:border-brand-200 transition-colors">
+                            <h3 class="font-bold text-slate-900 mb-2">Insight 1: Trust > Simplicity</h3>
+                            <p class="text-sm text-slate-600">Engineers didn't want a "simple" UI; they wanted a dense, data-rich UI they could trust. Hiding complexity created anxiety.</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm hover:border-brand-200 transition-colors">
+                            <h3 class="font-bold text-slate-900 mb-2">Insight 2: Text is UI</h3>
+                            <p class="text-sm text-slate-600">For developers, logs *are* the interface. Standard UI components often got in the way of raw text parsing.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder for Process/Whiteboard Image -->
+                    <div class="aspect-video bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200 mb-4">
+                        <span class="text-slate-400 text-sm">Image: Whiteboarding session & Affinity Mapping</span>
+                    </div>
+                    <p class="text-sm text-slate-500 text-center italic">Mapping the current vs. ideal user journey.</p>
+                </section>
+
+                <!-- Section 3: The Solution -->
+                <section class="reveal">
+                    <h2 class="text-3xl font-serif text-slate-900 mb-6">The Solution: Modular Density</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        We moved away from the standard Material Design "card" layout (which had too much whitespace) and developed a "High Density" table system.
+                    </p>
+
+                    <div class="space-y-12">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">1. The "Actionable" Status Bar</h3>
+                            <p class="text-slate-600 mb-4">Instead of static traffic lights (Red/Green), we made status indicators interactive filters. Clicking "Failed" immediately filtered the log stream to relevant errors.</p>
+                            <div class="aspect-[16/6] bg-slate-800 rounded-lg flex items-center justify-center gradient-soft-teal border border-slate-200/20">
+                                <span class="text-brand-900/50">UI Detail: Interactive Filters</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">2. Unified Command Center</h3>
+                            <p class="text-slate-600 mb-4">We introduced a persistent command line at the bottom of the UI, allowing power users to execute scripts without leaving the GUI context.</p>
+                            <div class="aspect-[16/9] bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                                <span class="text-slate-400">UI Detail: Full Dashboard View</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Impact -->
+                <section class="reveal">
+                    <div class="bg-slate-900 text-white p-8 md:p-12 rounded-2xl shadow-2xl relative overflow-hidden">
+                        <!-- Decorative gradient blob -->
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+                        
+                        <h2 class="text-3xl font-serif mb-8 relative z-10">Business Impact</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">40%</div>
+                                <p class="text-slate-400 text-sm leading-relaxed">Reduction in average workflow time for deployment monitoring.</p>
+                            </div>
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">15%</div>
+                                <p class="text-slate-400 text-sm leading-relaxed">Decrease in rollback errors due to clearer status visibility.</p>
+                            </div>
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">92%</div>
+                                <p class="text-slate-400 text-sm leading-relaxed">Positive sentiment (CSAT) from the pilot engineering group.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Reflection -->
+                <section class="reveal pb-12 border-b border-slate-200">
+                    <h2 class="text-3xl font-serif text-slate-900 mb-6">Reflection & Learning</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        This project taught me that "User Experience" in enterprise tools isn't about delight—it's about <strong>predictability</strong> and <strong>efficiency</strong>. The biggest challenge was aligning 12 different stakeholder teams who all "owned" a piece of the old workflow. By focusing on shared data (the logs) rather than the UI initially, we built consensus from the bottom up.
+                    </p>
+                </section>
+
+                <!-- Next Project -->
+                <div class="flex justify-between items-center pt-8">
+                    <a href="index.html" class="text-slate-500 hover:text-slate-900 font-medium transition-colors">
+                        ← Back to Home
+                    </a>
+                    <a href="#" class="group flex items-center text-right">
+                        <div class="mr-4">
+                            <span class="block text-xs text-slate-400 uppercase tracking-widest">Next Case Study</span>
+                            <span class="block font-serif text-xl text-slate-900 group-hover:text-brand-600 transition-colors">Fintech Mobile App</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors">
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </div>
+                    </a>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-12 mt-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-400 text-sm mb-4 md:mb-0">© 2026 Your Name. Confidential.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition-colors">LinkedIn</a>
+                <a href="#" class="text-slate-400 hover:text-brand-600 transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+    </script>
+</body>
+</html>
